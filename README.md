@@ -62,7 +62,7 @@
 
 ### RUN, BUILD AND TEST
 
-1. **HOW TO RUN AND TEST**
+1. **HOW TO RUN AND TEST** :
     Ensure to have java 17** jdk, mvn, docker (preferably latest version), git, Postman, intellij/Eclipse/STS/VS Code are installed in your machine
     Run the docker-compose.yml file via **docker-compose up** in the cmd terminal of root directory of the ecommerce
     Run in the following order via Intellij or mvn clean verify -DskipTests, then run mvn spring-boot:run
@@ -73,7 +73,7 @@
         SHOPPING-CART SERVICE
         PAYMENT SERVICE
     
-2. **TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)**
+2.  **TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)**
         **POSTMAN TEST** (USE THE ENDPOINTS BELOW, ALL PORTS CAN BE REPLACED BY THE API GATEWAY PORT(localhost:8222/) FOR ACCESS)
             **TEST IN THE FOLLOWING ORDER**
                 BOOK-INVENTORY SERVICE
@@ -95,11 +95,11 @@
                 SHOPPING-CART SERVICE
                 User Purchase History (GET) - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
 
-3. **SPIRNG BOOT UNIT AND INTEGRATION TESING** (Ensure all microservices are running)
+3.    **SPIRNG BOOT UNIT AND INTEGRATION TESING** (Ensure all microservices are running)
             Run mvn test or mvn clean install by going inside each folder/microservice to build the applications.
 
 ### PROMETHEUS AND GRAFANA
- **PROMETHEUS AND GRAFANA CONFIGURATION** 
+ **PROMETHEUS AND GRAFANA CONFIGURATION** :
         - ENSURE PROMETHEUS(http://localhost:9090/) AND GRAFANA(http://localhost:3000/) ARE RUNNING ON DOCKER
         - ENSURE TO DOCKERIZE EACH MICROSERVICE
         - LOGIN TO GRAFANA WITH USER - admin and PASSWORD - admin
@@ -109,7 +109,7 @@
         - IMPORT THE CONTENTS OF THE GRAFANA.JSON AND SET HTTP URL TO http://prometheus:9090 (prometheus is name of prometheus container in your docker)
         - YOU CAN NOW VIEW THE MONITORING DASHBOARD
 
-### ZIPKIN ACCESS FOR API ENDPOINT TRACING
+### ZIPKIN ACCESS FOR API ENDPOINT TRACING :
         ENSURE ZIPKIN(http://localhost:9411/) IS RUNNING ON DOCKER
         ACCESS ZIPKIN AND RUN YOUR QUERY TO VIEW VARIOUS SPANS AND TRACING
         
