@@ -20,6 +20,7 @@
 - **Spring Boot** -- Version 3.2.5 
 - **Spring Web starter** 
 - **Spring Validator** 
+- **Jakarta-validation-api** 
 - **Spring Cloud Gateway** 
 - **Spring web-flux-starter**  
 - **Netflix Eureka Client/Server** 
@@ -45,15 +46,17 @@
 1. **BOOK-INVENTORY SERVICE :**
 
    - Add Book
+   - Search Book
    - Get Book By Id
 
 2. **SHOPPING-CART SERVICE** :
 
    - Registration (Shopping Card)
    - Authentication (Shopping Card)
-   - Shopping cart (for guest or logged user)
-   - Create Order
-   - Purchase History
+   - Add to Cart (logged user)
+   - View Cart (logged user)
+   - Checkout/Create Order (logged user)
+   - Purchase History (logged user)
    
 1. **PAYMENT-SERVICE :**
 
@@ -64,8 +67,8 @@
 
 1. **HOW TO RUN AND TEST** :
     Ensure to have java 17** jdk, mvn, docker (preferably latest version), git, Postman, intellij/Eclipse/STS/VS Code are installed in your machine
-    Run the docker-compose.yml file via **docker-compose up** in the cmd terminal of root directory of the ecommerce
-    Run in the following order via Intellij or mvn clean verify -DskipTests, then run mvn spring-boot:run
+    Run the docker-compose.yml file via **docker-compose up** in the cmd terminal of root directory of the ecommerce.
+    Run in the following order via Intellij or mvn clean verify -DskipTests, then run mvn spring-boot:run,
         DISCOVERY-SERVICE
         CONFIG-SERVICE
         API-GATEWAY
@@ -95,18 +98,18 @@
                 SHOPPING-CART SERVICE
                 User Purchase History (GET) - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
 
-3.    **SPIRNG BOOT UNIT AND INTEGRATION TESING** (Ensure all microservices are running)
+3.    **SPIRNG BOOT UNIT AND INTEGRATION TESING** (Ensure all microservices are running) :
             Run mvn test or mvn clean install by going inside each folder/microservice to build the applications.
 
-### PROMETHEUS AND GRAFANA
- **PROMETHEUS AND GRAFANA CONFIGURATION** :
+### PROMETHEUS AND GRAFANA 
+1. **PROMETHEUS AND GRAFANA CONFIGURATION** :
         - ENSURE PROMETHEUS(http://localhost:9090/) AND GRAFANA(http://localhost:3000/) ARE RUNNING ON DOCKER
         - ENSURE TO DOCKERIZE EACH MICROSERVICE
         - LOGIN TO GRAFANA WITH USER - admin and PASSWORD - admin
         - IN THE DASHBOARD SELECT ADD DATA SOURCE
         - SELECT PROMETHEUS AS DATASOURCE AND SAVE
         - CLICK ON IMPORT DASHBOARD ON THE LEFT MENU
-        - IMPORT THE CONTENTS OF THE GRAFANA.JSON AND SET HTTP URL TO http://prometheus:9090 (prometheus is name of prometheus container in your docker)
+        - IMPORT THE CONTENTS OF THE Grafana_Dashbord.Json AND SET HTTP URL TO http://prometheus:9090 (prometheus is name of prometheus container in your docker)
         - YOU CAN NOW VIEW THE MONITORING DASHBOARD
 
 ### ZIPKIN ACCESS FOR API ENDPOINT TRACING :
