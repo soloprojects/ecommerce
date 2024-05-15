@@ -66,37 +66,42 @@
 ### RUN, BUILD AND TEST
 
 1. **HOW TO RUN AND TEST** :
+
     Ensure to have java 17** jdk, mvn, docker (preferably latest version), git, Postman, intellij/Eclipse/STS/VS Code are installed in your machine
     Run the docker-compose.yml file via **docker-compose up** in the cmd terminal of root directory of the ecommerce.
-    Run in the following order via Intellij or mvn clean verify -DskipTests, then run mvn spring-boot:run,
-        DISCOVERY-SERVICE
-        CONFIG-SERVICE
-        API-GATEWAY
-        BOOK-INVENTORY SERVICE
-        SHOPPING-CART SERVICE
-        PAYMENT SERVICE
+    Run in the following order via Intellij( or mvn clean verify -DskipTests, then run mvn spring-boot:run),
+
+1.    DISCOVERY-SERVICE
+2.    CONFIG-SERVICE
+3.    API-GATEWAY
+4.    BOOK-INVENTORY SERVICE
+5.    SHOPPING-CART SERVICE
+6.    PAYMENT SERVICE
     
 2.  **TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)**
-        **POSTMAN TEST** (USE THE ENDPOINTS BELOW, ALL PORTS CAN BE REPLACED BY THE API GATEWAY PORT(localhost:8222/) FOR ACCESS)
-            **TEST IN THE FOLLOWING ORDER**
-                BOOK-INVENTORY SERVICE
-                Add Book (POST) - localhost:8085/api/v1/book-inventory/create
-                Search Book (GET) - localhost:8085/api/v1/book-inventory/search?search_query=string
 
-                SHOPPING-CART SERVICE (REQUIRES AUTHENTICATION TOKEN)
-                Add Role (POST) - localhost:8087/api/v1/shopping-cart/role/create
-                Register Card (POST) - localhost:8087/api/v1/shopping-cart/register
-                Authenticate Card (POST) - localhost:8087/api/v1/shopping-cart/auth/authenticate
-                Add items to cart (POST) - localhost:8087/api/v1/shopping-cart/add
-                View Cart Content (GET) - localhost:8087/api/v1/shopping-cart/items
-                Checkout/Order Cart Items (POST) - localhost:8087/api/v1/shopping-cart/checkout
+    **POSTMAN TEST** (USE THE ENDPOINTS BELOW, ALL PORTS CAN BE REPLACED BY THE API GATEWAY PORT(localhost:8222/) FOR ACCESS)
 
-                PAYMENT-SERVICE
-                Payment Simulation/Create Payment(Use Existing OrderId in Cart-service) (POST) - localhost:8086/api/v1/payment-service/accept
-                Get Payment By OrderId (GET) - localhost:8086/api/v1/payment-service/order/{id}
+    **TEST IN THE FOLLOWING ORDER**
 
-                SHOPPING-CART SERVICE
-                User Purchase History (GET) - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
+    BOOK-INVENTORY SERVICE
+    Add Book (POST) - localhost:8085/api/v1/book-inventory/create
+    Search Book (GET) - localhost:8085/api/v1/book-inventory/search?search_query=string
+
+    SHOPPING-CART SERVICE (REQUIRES AUTHENTICATION TOKEN)
+    Add Role (POST) - localhost:8087/api/v1/shopping-cart/role/create
+    Register Card (POST) - localhost:8087/api/v1/shopping-cart/register
+    Authenticate Card (POST) - localhost:8087/api/v1/shopping-cart/auth/authenticate
+    Add items to cart (POST) - localhost:8087/api/v1/shopping-cart/add
+    View Cart Content (GET) - localhost:8087/api/v1/shopping-cart/items
+    Checkout/Order Cart Items (POST) - localhost:8087/api/v1/shopping-cart/checkout
+
+    PAYMENT-SERVICE
+    Payment Simulation/Create Payment(Use Existing OrderId in Cart-service) (POST) - localhost:8086/api/v1/payment-service/accept
+    Get Payment By OrderId (GET) - localhost:8086/api/v1/payment-service/order/{id}
+
+    SHOPPING-CART SERVICE
+    User Purchase History (GET) - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
 
 3.    **SPIRNG BOOT UNIT AND INTEGRATION TESING** (Ensure all microservices are running) :
             Run mvn test or mvn clean install by going inside each folder/microservice to build the applications.
