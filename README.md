@@ -4,12 +4,13 @@
 
 ### Table of contents
 
-- [Project architecture](#Project-architecture)
+- [SYSTEM DESIGN AND PROJECT ARCHITECTURE](#System-Design-And-Architecture)
 - [Tools and Technologies](#technologies)
 - [Features](#features)
 
-### Project architecture
- Check out the sytem design.png
+### SYSTEM DESIGN AND PROJECT ARCHITECTURE
+ Check out the sytem Ecommerce Diagram.drawio.png in the Ecommerce root directory.
+ https://raw.githubusercontent.com/soloprojects/ecommerce/master/Ecommerce%20Diagram.drawio.png
 
 ### Tools and Technologies
 
@@ -59,7 +60,7 @@
    - Do Payment
 
 3. **HOW TO RUN AND TEST**
-    Ensure to have java 17** jdk, mvn, docker, git, Postman, intellij/Eclipse/STS/VS Code are installed in your machine
+    Ensure to have java 17** jdk, mvn, docker (preferably latest version), git, Postman, intellij/Eclipse/STS/VS Code are installed in your machine
     Run the docker-compose.yml file in the root directory of the ecommerce folder
     Run in the following order via Intellij or mvn clean verify -DskipTests, then run mvn spring-boot:run
         DISCOVERY-SERVICE
