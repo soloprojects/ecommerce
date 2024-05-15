@@ -47,13 +47,13 @@ public class BookService implements BookServiceInterface {
     }
 
     @Override
-    public void save(BookDto bookDto) {
+    public BookModel save(BookDto bookDto) {
         BookModel book = new BookModel();
         book.setTitle(bookDto.title);
         book.setYearOfPublication(bookDto.yearOfPublication);
         book.setAuthor(bookDto.author);
         book.setGenre(Genre.validateString(bookDto.genre));
         book.setIsbn_code(bookDto.isbn_code);
-        bookRepository.save(book);
+        return bookRepository.save(book);
     }
 }

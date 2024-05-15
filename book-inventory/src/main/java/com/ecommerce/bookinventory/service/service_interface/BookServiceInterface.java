@@ -14,6 +14,6 @@ public interface BookServiceInterface {
     List<BookModel> search(String query) throws IOException;
 
     Iterable<BookModel> findAll();
-    void save(BookDto book);
+    BookModel save(BookDto book);
 
 }

@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface PaymentInterface {
 
-    void doPayment(PaymentRequest request);
+    Payment doPayment(PaymentRequest request);
 
     Optional<Payment> getPaymentByOrderId(Long Id);
 

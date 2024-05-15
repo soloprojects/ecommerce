@@ -18,14 +18,14 @@ public class PaymentService implements PaymentInterface {
     private final PaymentRepository paymentRepository;
 
     @Override
-    public void doPayment(PaymentRequest request) {
+    public Payment doPayment(PaymentRequest request) {
         Payment payment = new Payment();
         payment.setIsPayed(request.getIsPayed());
         payment.setOrderId(request.getOrderId());
         payment.setReferenceNo(request.getReferenceNumber());
         payment.setPaymentMode(request.getPaymentMode());
         payment.setPaymentStatus(request.getPaymentStatus());
-        paymentRepository.save(payment);
+        return paymentRepository.save(payment);
     }
 
     @Override

@@ -11,6 +11,6 @@ public enum PaymentMode {
     USSD("USSD"),
     TRANSFER("Transfer");
 
-    private final String status;
+    private final String name;
 
 }
