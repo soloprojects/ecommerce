@@ -53,9 +53,9 @@
    - Do Payment
 
 3. **HOW TO RUN AND TEST**
-    Ensure to have java 17** jdk, mvn, docker, git, Postman are installed in your machine
+    Ensure to have java 17** jdk, mvn, docker, git, Postman, intellij/Eclipse/STS/VS Code are installed in your machine
     Run the docker-compose.yml file in the root directory of the ecommerce folder
-    Run in the following order
+    Run in the following order via Intellij or mvn clean verify -DskipTests, then run mvn spring-boot:run
         DISCOVERY-SERVICE
         CONFIG-SERVICE
         API-GATEWAY
@@ -65,12 +65,28 @@
     
     TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)
         POSTMAN (USE THE ENDPOINTS BELOW)
-        localhost:8085/api/v1/book-inventory/add
+            Add Book - localhost:8085/api/v1/book-inventory/create
+            Search Book - localhost:8085/api/v1/book-inventory/search?search_query=string
+
+            Add Role - localhost:8087/api/v1/shopping-cart/role/create
+            Register Card - localhost:8087/api/v1/shopping-cart/register
+            Authenticate Card - localhost:8087/api/v1/shopping-cart/auth/authenticate
+            Add items to cart - localhost:8087/api/v1/shopping-cart/add
+            View Cart Content - localhost:8087/api/v1/shopping-cart/items
+            Checkout/Order Cart Items - localhost:8087/api/v1/shopping-cart/checkout
+
+            Payment Simulation/Create Payment(Use Existing OrderId in Cart-service) - localhost:8086/api/v1/payment-service/accept
+            Get Payment By OrderId - localhost:8086/api/v1/payment-service/order/{id}
+
+            User Purchase History - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
+
+        SPIRNG BOOT UNIT AND INTEGRATION TESING (Ensure all microservices are running)
+            Run mvn test or mvn clean install by going inside each folder/microservice to build the applications.
 
 
-    R
+            
 
-    Ensure the services are running before testing.
+    
 
 
 
