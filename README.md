@@ -14,19 +14,25 @@
 ### Tools and Technologies
 
 - **Java 17**
-- **Spring Boot** 
+- **Spring Boot** -- Version 3.2.5 
 - **Spring Web starter** 
-- **Spring SESSION** 
+- **Spring Validator** 
 - **Spring Cloud Gateway** 
 - **Spring web-flux-starter**  
 - **Netflix Eureka Client/Server** 
-- **Netflix Ribbon** 
-- **Redis Client : JEDIS** 
+- **Zipkin** 
+- **Spring Security** 
 - **Spring Data REDIS** 
 - **Spring Data JPA** 
-- **Hibernate** 
-- **SQL Database engine** 
-- **Config Server** 
+- **Hibernate**  
+- **Prometheus**  
+- **Actuator**  
+- **spring-doc-open-api**  
+- **JSONWEBTOKEN**  
+- **Lombok**  
+- **Resilience4J** 
+- **POSTGRESQL Database engine** 
+- **Config Client/Server** 
 - **Maven**
 - **Elastic Search**
 - **Docker**
@@ -65,7 +71,7 @@
     
     TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)
         POSTMAN (USE THE ENDPOINTS BELOW)
-            Add Book - localhost:8085/api/v1/book-inventory/create
+            Add Book () - localhost:8085/api/v1/book-inventory/create
             Search Book - localhost:8085/api/v1/book-inventory/search?search_query=string
 
             Add Role - localhost:8087/api/v1/shopping-cart/role/create
