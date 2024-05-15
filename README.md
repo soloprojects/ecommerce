@@ -7,10 +7,11 @@
 - [SYSTEM DESIGN AND PROJECT ARCHITECTURE](#System-Design-And-Architecture)
 - [Tools and Technologies](#technologies)
 - [Features](#features)
+- [RUN, BUILD AND TESTING](#RUN-BUILD-TEST)
 
 ### SYSTEM DESIGN AND PROJECT ARCHITECTURE
  Check out the sytem Ecommerce Diagram.drawio.png in the Ecommerce root directory.
- https://raw.githubusercontent.com/soloprojects/ecommerce/master/Ecommerce%20Diagram.drawio.png
+ ![micro] https://raw.githubusercontent.com/soloprojects/ecommerce/master/Ecommerce%20Diagram.drawio.png
 
 ### Tools and Technologies
 
@@ -42,9 +43,8 @@
 
 1. **BOOK-INVENTORY SERVICE :**
 
-   - Get Book By Id
-   - List of Books
    - Add Book
+   - Get Book By Id
 
 2. **SHOPPING-CART SERVICE** :
 
@@ -59,7 +59,8 @@
    - Get Payment By OrderId
    - Do Payment
 
-3. **HOW TO RUN AND TEST**
+### RUN, BUILD AND TESTING
+1. **HOW TO RUN AND TEST**
     Ensure to have java 17** jdk, mvn, docker (preferably latest version), git, Postman, intellij/Eclipse/STS/VS Code are installed in your machine
     Run the docker-compose.yml file in the root directory of the ecommerce folder
     Run in the following order via Intellij or mvn clean verify -DskipTests, then run mvn spring-boot:run
@@ -70,25 +71,32 @@
         SHOPPING-CART SERVICE
         PAYMENT SERVICE
     
-    TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)
-        POSTMAN (USE THE ENDPOINTS BELOW)
-            Add Book () - localhost:8085/api/v1/book-inventory/create
-            Search Book - localhost:8085/api/v1/book-inventory/search?search_query=string
+2.    **TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)**
+        POSTMAN TEST (USE THE ENDPOINTS BELOW, ALL PORTS CAN BE REPLACED BY THE API GATEWAY PORT(localhost:8222/) FOR ACCESS)
+            **TEST IN THE FOLLOWING ORDER**
+            BOOK-INVENTORY SERVICE
+            Add Book (POST) - localhost:8085/api/v1/book-inventory/create
+            Search Book (GET) - localhost:8085/api/v1/book-inventory/search?search_query=string
 
-            Add Role - localhost:8087/api/v1/shopping-cart/role/create
-            Register Card - localhost:8087/api/v1/shopping-cart/register
-            Authenticate Card - localhost:8087/api/v1/shopping-cart/auth/authenticate
-            Add items to cart - localhost:8087/api/v1/shopping-cart/add
-            View Cart Content - localhost:8087/api/v1/shopping-cart/items
-            Checkout/Order Cart Items - localhost:8087/api/v1/shopping-cart/checkout
+            SHOPPING-CART SERVICE (REQUIRES AUTHENTICATION TOKEN)
+            Add Role (POST) - localhost:8087/api/v1/shopping-cart/role/create
+            Register Card (POST) - localhost:8087/api/v1/shopping-cart/register
+            Authenticate Card (POST) - localhost:8087/api/v1/shopping-cart/auth/authenticate
+            Add items to cart (POST) - localhost:8087/api/v1/shopping-cart/add
+            View Cart Content (GET) - localhost:8087/api/v1/shopping-cart/items
+            Checkout/Order Cart Items (POST) - localhost:8087/api/v1/shopping-cart/checkout
 
-            Payment Simulation/Create Payment(Use Existing OrderId in Cart-service) - localhost:8086/api/v1/payment-service/accept
-            Get Payment By OrderId - localhost:8086/api/v1/payment-service/order/{id}
+            PAYMENT-SERVICE
+            Payment Simulation/Create Payment(Use Existing OrderId in Cart-service) (POST) - localhost:8086/api/v1/payment-service/accept
+            Get Payment By OrderId (GET) - localhost:8086/api/v1/payment-service/order/{id}
 
-            User Purchase History - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
+            SHOPPING-CART SERVICE
+            User Purchase History (GET) - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
 
         SPIRNG BOOT UNIT AND INTEGRATION TESING (Ensure all microservices are running)
             Run mvn test or mvn clean install by going inside each folder/microservice to build the applications.
+
+3. PROMETHEUS AND GRAFANA CONFIGURATION 
 
 
             
