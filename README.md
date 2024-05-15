@@ -84,38 +84,43 @@
 
     **TEST IN THE FOLLOWING ORDER**
 
-    BOOK-INVENTORY SERVICE
-    Add Book (POST) - localhost:8085/api/v1/book-inventory/create
-    Search Book (GET) - localhost:8085/api/v1/book-inventory/search?search_query=string
+        BOOK-INVENTORY SERVICE
 
-    SHOPPING-CART SERVICE (REQUIRES AUTHENTICATION TOKEN)
-    Add Role (POST) - localhost:8087/api/v1/shopping-cart/role/create
-    Register Card (POST) - localhost:8087/api/v1/shopping-cart/register
-    Authenticate Card (POST) - localhost:8087/api/v1/shopping-cart/auth/authenticate
-    Add items to cart (POST) - localhost:8087/api/v1/shopping-cart/add
-    View Cart Content (GET) - localhost:8087/api/v1/shopping-cart/items
-    Checkout/Order Cart Items (POST) - localhost:8087/api/v1/shopping-cart/checkout
+        Add Book (POST) - localhost:8085/api/v1/book-inventory/create
+        Search Book (GET) - localhost:8085/api/v1/book-inventory/search?search_query=string
 
-    PAYMENT-SERVICE
-    Payment Simulation/Create Payment(Use Existing OrderId in Cart-service) (POST) - localhost:8086/api/v1/payment-service/accept
-    Get Payment By OrderId (GET) - localhost:8086/api/v1/payment-service/order/{id}
+        SHOPPING-CART SERVICE (REQUIRES AUTHENTICATION TOKEN)
 
-    SHOPPING-CART SERVICE
-    User Purchase History (GET) - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
+        Add Role (POST) - localhost:8087/api/v1/shopping-cart/role/create
+        Register Card (POST) - localhost:8087/api/v1/shopping-cart/register
+        Authenticate Card (POST) - localhost:8087/api/v1/shopping-cart/auth/authenticate
+        Add items to cart (POST) - localhost:8087/api/v1/shopping-cart/add
+        View Cart Content (GET) - localhost:8087/api/v1/shopping-cart/items
+        Checkout/Order Cart Items (POST) - localhost:8087/api/v1/shopping-cart/checkout
+
+        PAYMENT-SERVICE
+
+        Payment Simulation/Create Payment(Use Existing OrderId in Cart-service) (POST) - localhost:8086/api/v1/payment-service/accept
+        Get Payment By OrderId (GET) - localhost:8086/api/v1/payment-service/order/{id}
+
+        SHOPPING-CART SERVICE
+        User Purchase History (GET) - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
 
 3.    **SPIRNG BOOT UNIT AND INTEGRATION TESING** (Ensure all microservices are running) :
+
             Run mvn test or mvn clean install by going inside each folder/microservice to build the applications.
 
 ### PROMETHEUS AND GRAFANA 
 1. **PROMETHEUS AND GRAFANA CONFIGURATION** :
-        - ENSURE PROMETHEUS(http://localhost:9090/) AND GRAFANA(http://localhost:3000/) ARE RUNNING ON DOCKER
-        - ENSURE TO DOCKERIZE EACH MICROSERVICE
-        - LOGIN TO GRAFANA WITH USER - admin and PASSWORD - admin
-        - IN THE DASHBOARD SELECT ADD DATA SOURCE
-        - SELECT PROMETHEUS AS DATASOURCE AND SAVE
-        - CLICK ON IMPORT DASHBOARD ON THE LEFT MENU
-        - IMPORT THE CONTENTS OF THE Grafana_Dashbord.Json AND SET HTTP URL TO http://prometheus:9090 (prometheus is name of prometheus container in your docker)
-        - YOU CAN NOW VIEW THE MONITORING DASHBOARD
+
+- ENSURE PROMETHEUS(http://localhost:9090/) AND GRAFANA(http://localhost:3000/) ARE RUNNING ON DOCKER
+- ENSURE TO DOCKERIZE EACH MICROSERVICE
+- LOGIN TO GRAFANA WITH USER - admin and PASSWORD - admin
+- IN THE DASHBOARD SELECT ADD DATA SOURCE
+- SELECT PROMETHEUS AS DATASOURCE AND SAVE
+- CLICK ON IMPORT DASHBOARD ON THE LEFT MENU
+- IMPORT THE CONTENTS OF THE Grafana_Dashbord.Json AND SET HTTP URL TO http://prometheus:9090 (prometheus is name of prometheus container in your docker)
+- YOU CAN NOW VIEW THE MONITORING DASHBOARD
 
 ### ZIPKIN ACCESS FOR API ENDPOINT TRACING :
         ENSURE ZIPKIN(http://localhost:9411/) IS RUNNING ON DOCKER
