@@ -73,9 +73,8 @@
         SHOPPING-CART SERVICE
         PAYMENT SERVICE
     
-2.    **TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)**
-        **POSTMAN TEST** 
-            (USE THE ENDPOINTS BELOW, ALL PORTS CAN BE REPLACED BY THE API GATEWAY PORT(localhost:8222/) FOR ACCESS)
+2. **TESTING (ENSURE THE SERVICES ARE RUNNING BEFORE TESTING)**
+        **POSTMAN TEST** (USE THE ENDPOINTS BELOW, ALL PORTS CAN BE REPLACED BY THE API GATEWAY PORT(localhost:8222/) FOR ACCESS)
             **TEST IN THE FOLLOWING ORDER**
                 BOOK-INVENTORY SERVICE
                 Add Book (POST) - localhost:8085/api/v1/book-inventory/create
@@ -96,7 +95,7 @@
                 SHOPPING-CART SERVICE
                 User Purchase History (GET) - localhost:8087/api/v1/shopping-cart/purchase_history/user/{id}
 
-    **SPIRNG BOOT UNIT AND INTEGRATION TESING** (Ensure all microservices are running)
+3. **SPIRNG BOOT UNIT AND INTEGRATION TESING** (Ensure all microservices are running)
             Run mvn test or mvn clean install by going inside each folder/microservice to build the applications.
 
 ### PROMETHEUS AND GRAFANA
