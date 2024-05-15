@@ -133,19 +133,6 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-maven-plugin</artifactId>
-				<version>10.10.0</version>
-				<configuration>
-					<url>jdbc:postgresql://localhost:3306/shopping_cart_db</url>
-					<!--suppress UnresolvedMavenProperty -->
-					<user>${database.username}</user>
-					<!--suppress UnresolvedMavenProperty -->
-					<password>${database.password}</password>
-					<locations>classpath:db/migrations</locations>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
@@ -156,6 +143,31 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.2.3</version>
+				<configuration>
+					<skipTests>false</skipTests>
+					<rerunFailingTestsCount>1</rerunFailingTestsCount>
+					<includes>
+						<include>**/*IT.java</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
